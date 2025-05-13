@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button"
 import { auth } from "./firebase"
 import { Toaster, toast } from "sonner"
 import { createUserWithEmailAndPassword } from "firebase/auth"
+import NavMenu from "./NavMenu"
+import Menu_Bar from "./Menu_Bar"
+import DropDown from "./DropDown"
+import Sheets from "./Sheets"
+
 
 function App() {
   const [email, setEmail] = useState("")
@@ -35,13 +40,20 @@ function App() {
   }
 
   return (
-    <div className="w-full bg-gray-100 h-screen flex justify-center items-center">
+    <div >
+     {/* <NavMenu/> */}
+     <Menu_Bar/>
+     <Sheets/>
+     {/* <DropDown/> */}
       <Toaster richColors position="top-right" />
+    <div className="w-full bg-gray-100 min-h-screen flex justify-center items-center p-4">
+      
+
 
       <Card className="flex-col bg-white space-y-4 mx-3.5 py-6 px-10 w-full max-w-md">
-        <h1>
-          <Label className="text-xl">Sign up</Label>
-        </h1>
+        
+       <h1 className="text-2xl font-semibold text-center">Sign up</h1>
+
 
         <form onSubmit={handleSignup} className="space-y-4">
           <div>
@@ -84,6 +96,7 @@ function App() {
           {success && <p className="text-green-600 text-sm">{success}</p>} */}
         </form>
       </Card>
+    </div>
     </div>
   )
 }
